@@ -50,13 +50,11 @@ class _LoadingButtonState extends State<LoadingButton> {
           child: AnimatedOpacity(
             duration: widget.animationDuration ?? Duration(milliseconds: 500),
             opacity: _loading ? 1 : 0,
-            child: Center(
-              child: Container(
-                margin: widget.margin ?? EdgeInsets.all(0),
-                height: widget.loaderSize ?? 30,
-                width: widget.loaderSize ?? 30,
-                child: CircularProgressIndicator(),
-              ),
+            child: Container(
+              margin: widget.margin ?? EdgeInsets.all(0),
+              height: widget.loaderSize ?? 30,
+              width: widget.loaderSize ?? 30,
+              child: CircularProgressIndicator(),
             ),
           ),
         ),

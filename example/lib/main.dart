@@ -40,9 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: LoadingButton(
           buttonTitle: "SignUp",
           buttonHeight: 55.0,
-          buttonWidth: MediaQuery.of(context).size.width,
+          buttonWidth: 85,
+          alignment: Alignment.centerLeft,
           onPress: () async {
-            await Future.delayed(Duration(seconds: 5));
+            await Future.delayed(Duration(seconds: 2));
           },
         ),
       ),
