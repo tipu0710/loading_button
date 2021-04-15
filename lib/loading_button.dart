@@ -72,8 +72,8 @@ class _LoadingButtonState extends State<LoadingButton> {
                   toggleLoading();
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: widget.buttonColor ?? Colors.blue,
-                  onPrimary: widget.buttonColor ?? Colors.blue,
+                  primary: widget.buttonColor ?? Theme.of(context).primaryColor,
+                  onPrimary: widget.buttonColor ?? Theme.of(context).primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius:
                     BorderRadius.circular(widget.buttonCorner ?? 0.0),
