@@ -74,7 +74,6 @@ class _LoadingButtonState extends State<LoadingButton> {
                     toggleLoading();
                   }catch (e){
                     toggleLoading();
-                    throw e;
                   }
                 },
                 style: ElevatedButton.styleFrom(
