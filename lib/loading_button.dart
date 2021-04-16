@@ -69,8 +69,13 @@ class _LoadingButtonState extends State<LoadingButton> {
               child: ElevatedButton(
                 onPressed: () async {
                   toggleLoading();
-                  await widget.onPress();
-                  toggleLoading();
+                  try{
+                    await widget.onPress();
+                    toggleLoading();
+                  }catch (e){
+                    toggleLoading();
+                    throw e;
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   primary: widget.buttonColor ?? Theme.of(context).primaryColor,
