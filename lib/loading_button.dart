@@ -36,9 +36,11 @@ class _LoadingButtonState extends State<LoadingButton> {
   bool _loading = false;
 
   void toggleLoading() {
-    setState(() {
-      _loading = !_loading;
-    });
+    if(mounted){
+      setState(() {
+        _loading = !_loading;
+      });
+    }
   }
 
   @override
