@@ -1,4 +1,5 @@
 library loading_button;
+
 import 'package:flutter/material.dart';
 
 class LoadingButton extends StatefulWidget {
@@ -15,18 +16,18 @@ class LoadingButton extends StatefulWidget {
   final Alignment? alignment;
 
   const LoadingButton(
-      {Key? key,
-        required this.buttonTitle,
-        required this.buttonHeight,
-        required this.buttonWidth,
-        required this.onPress,
-        this.buttonTextStyle,
-        this.animationDuration,
-        this.buttonColor,
-        this.buttonCorner,
-        this.loaderSize,
-        this.margin, this.alignment})
-      : super(key: key);
+      {super.key,
+      required this.buttonTitle,
+      required this.buttonHeight,
+      required this.buttonWidth,
+      required this.onPress,
+      this.buttonTextStyle,
+      this.animationDuration,
+      this.buttonColor,
+      this.buttonCorner,
+      this.loaderSize,
+      this.margin,
+      this.alignment});
 
   @override
   _LoadingButtonState createState() => _LoadingButtonState();
@@ -36,7 +37,7 @@ class _LoadingButtonState extends State<LoadingButton> {
   bool _loading = false;
 
   void toggleLoading() {
-    if(mounted){
+    if (mounted) {
       setState(() {
         _loading = !_loading;
       });
@@ -48,7 +49,7 @@ class _LoadingButtonState extends State<LoadingButton> {
     return Stack(
       children: [
         Align(
-          alignment: widget.alignment??Alignment.center,
+          alignment: widget.alignment ?? Alignment.center,
           child: AnimatedOpacity(
             duration: widget.animationDuration ?? Duration(milliseconds: 500),
             opacity: _loading ? 1 : 0,
@@ -61,7 +62,7 @@ class _LoadingButtonState extends State<LoadingButton> {
           ),
         ),
         Align(
-          alignment: widget.alignment??Alignment.center,
+          alignment: widget.alignment ?? Alignment.center,
           child: AnimatedContainer(
             margin: widget.margin ?? EdgeInsets.all(0),
             duration: widget.animationDuration ?? Duration(milliseconds: 500),
@@ -71,19 +72,19 @@ class _LoadingButtonState extends State<LoadingButton> {
               child: ElevatedButton(
                 onPressed: () async {
                   toggleLoading();
-                  try{
+                  try {
                     await widget.onPress();
                     toggleLoading();
-                  }catch (e){
+                  } catch (e) {
                     toggleLoading();
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: widget.buttonColor ?? Theme.of(context).primaryColor,
-                  onPrimary: widget.buttonColor ?? Theme.of(context).primaryColor,
+                  backgroundColor:
+                      widget.buttonColor ?? Theme.of(context).primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius:
-                    BorderRadius.circular(widget.buttonCorner ?? 0.0),
+                        BorderRadius.circular(widget.buttonCorner ?? 0.0),
                   ),
                 ),
                 child: Center(
@@ -97,7 +98,7 @@ class _LoadingButtonState extends State<LoadingButton> {
                           fontWeight: FontWeight.w500,
                         ),
                     textHeightBehavior:
-                    TextHeightBehavior(applyHeightToFirstAscent: false),
+                        TextHeightBehavior(applyHeightToFirstAscent: false),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -109,4 +110,3 @@ class _LoadingButtonState extends State<LoadingButton> {
     );
   }
 }
-

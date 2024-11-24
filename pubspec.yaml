@@ -1,12 +1,11 @@
 name: loading_button
 description: A new Flutter package.
-version: 0.0.7
-author:
+version: 0.0.8
+
 homepage: https://github.com/tipu0710/loading_button.git
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=3.4.3 <4.0.0'
 
 dependencies:
   flutter:
